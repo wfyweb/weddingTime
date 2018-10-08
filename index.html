@@ -191,7 +191,6 @@
     <div class="invitation">
         2018年11月6日 星期二 农历九月二十九 <br />恭候大家光临！
     </div>
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script>
         function timer() {
             var now = new Date();
@@ -205,32 +204,35 @@
         }
         timer();
         
-        var Music = document.querySelector('.music-Bg');
+        var MusicBtn = document.querySelector('.music-Bg');
         var music = document.querySelector('.music-bg');
         var audio = document.querySelector('#music-audio');
-        function autoPlay(eId) {
-            wx.config({
-                // 配置信息, 即使不正确也能使用 wx.ready
-                debug: false,
-                appId: '',
-                timestamp: 1,
-                nonceStr: '',
-                signature: '',
-                jsApiList: []
-            });
-            wx.ready(()=> {
-                document.getElementById(eId).play();
-            });
-        }
-        autoPlay(audio);
-        (function () {
-            Music.addEventListener('click',
-                function () {
-                    Music.classList.toggle('music-spread');
-                    var isPLay = music.classList.toggle('music-bg-auto');
-                    isPLay ? audio.play() : audio.pause();
-                });
-        })();
+                
+
+         window.onload = function() {
+                //监听微信
+                document.addEventListener('WeixinJSBridgeReady', audioPlay, false);
+                //点击页面加载音乐
+                document.addEventListener('click',audioPlay, false);
+                function audioPlay(){
+                    audio.play()
+                    document.removeEventListener("click",audioPlay, false);
+                    document.removeEventListener("WeixinJSBridgeReady",audioPlay, false);
+                }
+                ///////////////
+                
+
+                //点击图标切换音乐
+                (function(){
+                    MusicBtn.addEventListener('click',
+                        function () {
+                            MusicBtn.classList.toggle('music-spread');
+                            var isPLay = music.classList.toggle('music-bg-auto');
+                            isPLay ? audio.play() : audio.pause();
+                        });
+                })()
+
+            }
     </script>
 </body>
 
