@@ -181,21 +181,21 @@
     </div>
 
     <div class="content">
-        <h1>王方远<b> ❤ </b>宋琦的婚礼</h1>
-        <h1>倒计时</h1>
+        <h1>王方远<b> ❤ </b>宋琦已婚礼</h1>
+        <h1>计时</h1>
         <div class="timer">
             <b id="d"></b> 天 <b id="h"></b> 时 <b id="m"></b> 分 <b id="s"></b> 秒
         </div>
 
     </div>
     <div class="invitation">
-        2018年11月6日 星期二 农历九月二十九 <br />恭候大家光临！
+        2018年11月6日 星期二 农历九月二十九 <br />我们结婚了！
     </div>
     <script>
         function timer() {
             var now = new Date();
             var endTime = new Date(2018, 10, 6, 8);
-            var t = endTime - now;
+            var t = now - endTime;
             document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
             document.getElementById('h').innerHTML = ~~(t / 1000 / 60 / 60 % 24);
             document.getElementById('m').innerHTML = ~~(t / 1000 / 60 % 60);
