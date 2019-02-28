@@ -1,2 +1,2 @@
 # weddingTime
-My wedding countdown http://wfyweb.com/marryTime/
+My wedding countdown https://wfyweb.github.io/weddingTime/
